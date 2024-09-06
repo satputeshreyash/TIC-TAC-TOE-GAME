@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- let this meta data be here as we want our website to be responsive -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script&family=Open+Sans:wght@300;700&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/overlays.css" />
+    <link rel="stylesheet" href="styles/configuration.css" />
+    <link rel="stylesheet" href="styles/game.css" />
+
+    <script src="scripts/config.js" defer></script>
+    <script src="scripts/game.js" defer></script>
+    <script src="scripts/app.js" defer></script>
+
+    <title>TIC - TAC - TOE</title>
+  </head>
+  <body>
+    <div id="backdrop"></div>
+    <header id="main-header">
+      <h1>Play Tic Tac Toe</h1>
+      <p>Built with HTML, CSS, JavaScript and - ofcourse - lots of love</p>
+    </header>
+
+    <main>
+      <aside class="modal" id="config-overlay">
+        <h2>ENTER YOUR NAME</h2>
+        <form>
+          <div class="form-control">
+            <label for="playername">Player name</label>
+            <input type="text" name="playername" id="playername" required />
+            <!-- reset automatically clears the input field -->
+          </div>
+          <p id="config-error"></p>
+          <!-- in config-error we will showt the the error msg if the entered data is not valid -->
+          <div>
+            <!-- for button default is submit and button you can ignore or write it -->
+            <button type="reset" class="btn btn-alt" id="cancle-config">
+              Cancle
+            </button>
+            <button type="submit" class="btn">Confirm</button>
+          </div>
+        </form>
+      </aside>
+
+      <section id="game-configuration">
+        <ol>
+          <li>
+            <article id="player-1-data">
+              <h2>Player 1</h2>
+              <h3>PLAYER NAME</h3>
+              <p class="player-symbol">X</p>
+              <button
+                class="btn btn-alt"
+                id="edit-player-1-btn"
+                data-playerId="1"
+              >
+                Edit
+              </button>
+              <!-- data is the special attribute which is used to differentiate between the two edit buttons
+              as in our case for both the edit buttons the same function is getting execuated , so we should have
+            a track which button was clicked -->
+            <!-- we can add multiple data to a single button -->
+            </article>
+          </li>
+
+          <li>
+            <article id="player-2-data">
+              <h2>Player 2</h2>
+              <h3>PLAYER NAME</h3>
+              <p class="player-symbol">O</p>
+              <button
+                class="btn btn-alt"
+                id="edit-player-2-btn"
+                data-playerid="2"
+              >
+                Edit
+              </button>
+            </article>
+          </li>
+        </ol>
+        <button class="btn" id="start-game-btn">Start New Game</button>
+      </section>
+
+      <section id="active-games">
+        <article id="game-over">
+          <h2 id="h2">You Won,<span id="winner-name">Player name</span>!</h2>
+          <p>Click "Start new game" above, to start a new game</p>
+        </article>
+
+        <p id="para">
+          Its your turn <span id="active-player-name">Player name</span>
+        </p>
+
+        <ol id="game-board">
+          <li data-col="1" data-row="1"></li>
+          <!-- addding data attibute to identify different list item perfectly -->
+          <li data-col="2" data-row="1"></li>
+          <li data-col="3" data-row="1"></li>
+
+          <li data-col="1" data-row="2"></li>
+          <li data-col="2" data-row="2"></li>
+          <li data-col="3" data-row="2"></li>
+
+          <li data-col="1" data-row="3"></li>
+          <li data-col="2" data-row="3"></li>
+          <li data-col="3" data-row="3"></li>
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>
